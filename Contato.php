@@ -1,6 +1,7 @@
 <?php
 
-class Contato {
+class Contato
+{
     private $id;
     private $nome;
     private $telefone;
@@ -14,23 +15,23 @@ class Contato {
         $this->email = $email;
     }
 
-        public function getId() 
-        {
-            return $this->id;
-        }
-        public function getNome() 
-        {
-            return $this->nome;
-        }
-        public function getTelefone() 
-        {
-            return $this->telefone;
-        }
-        public function getEmail()
-        {
-            return $this->email;
-        }
-
+    public function getId()
+    {
+        return $this->id;
+    }
+    
+    public function getNome()
+    {
+        return $this->nome;
+    }
+    
+    public function getTelefone()
+    {
+        return $this->telefone;
+    }
+    
+    public function getEmail()
+    {
+        return $this->email;
+    }
 }
-
-?>
