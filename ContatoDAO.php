@@ -26,6 +26,28 @@ class ContatoDAO {
             return [];
         }
     }
+
+    public function create($contato) {
+        try {
+            $sql = "INSERT INTO contatos_info (nome, telefone, email) 
+            VALUES (:nome, :telefone, :email)";
+            $stmt = $this->db->prepare(sql);
+
+            $nome = $contato->getNome();
+            $telefone = $contato->getTelefone();
+            $email = $contato->getEmail();
+
+            $stms->bindParam(':mome', $nome);
+            $stms->bindParam(':telefone', $telefone);
+            $stms->bindParam(':email', $email);
+            $stms->execute();
+
+            return true;
+
+        } catch(PDOExeption $e) {
+            return false;
+        }
+    }
 }
 
 ?>
