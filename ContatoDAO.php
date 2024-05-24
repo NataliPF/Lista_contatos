@@ -31,16 +31,16 @@ class ContatoDAO {
         try {
             $sql = "INSERT INTO contatos_info (nome, telefone, email) 
             VALUES (:nome, :telefone, :email)";
-            $stmt = $this->db->prepare(sql);
+            $stmt = $this->db->prepare($sql);
 
             $nome = $contato->getNome();
             $telefone = $contato->getTelefone();
             $email = $contato->getEmail();
 
-            $stms->bindParam(':mome', $nome);
-            $stms->bindParam(':telefone', $telefone);
-            $stms->bindParam(':email', $email);
-            $stms->execute();
+            $stmt->bindParam(':nome', $nome);
+            $stmt->bindParam(':telefone', $telefone);
+            $stmt->bindParam(':email', $email);
+            $stmt->execute();
 
             return true;
 
