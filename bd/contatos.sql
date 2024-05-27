@@ -11,4 +11,3 @@ CREATE TABLE IF NOT EXISTS contatos_info (
     telefone VARCHAR(20),
     email VARCHAR(100) NOT NULL
 );
-
