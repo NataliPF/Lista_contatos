@@ -11,7 +11,7 @@ class UsuarioDAO {
         $this->db = Database::getInstance()->getConnection();
     }
 
-    public function create(usuario)
+    public function create($usuario)
     {
        try {
         $sql = "INSERT INTO usuario (nome, senha, email, token) 
@@ -32,7 +32,7 @@ class UsuarioDAO {
 
         return true;
        }catch(PODException $e) {
-        return(PODExecute)
+        return(PODExecute);
        }
     }
     
