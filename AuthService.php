@@ -24,6 +24,9 @@ if($type === "register") {
             // Criação do Usuário no banco de dados por uso do UsuarioDAO
             $usuario = new Usuario(null, $new_nome, $hashed_password, $new_email, null);
             $usuarioDAO = new UsuarioDAO();
+
+            if(!$usuarioDAO->getByEmail($new_email))
+
             $success = $usuarioDAO->create($usuario);
 
             if($success){
@@ -33,6 +36,8 @@ if($type === "register") {
             } else {
                 echo "Erro ao registrar no banco de dados!";
                 exit();
+            } else {
+                echo "Email já utilizado";
             }
      } else {
         echo "Senhas incompativeis!";
