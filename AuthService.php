@@ -40,10 +40,28 @@ if($type === "register") {
     } else {
         echo "Dados de input inválidos!";
     }
-
 } elseif ($type === "login") {
     /// login de usuário
 
+    // Receber os dados vindo do HTML
+    $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_EMAIL);
+    $password = filter_input(INPUT_POST, "password");
+
+    // Verificar se o cadastro exixte
+    $usuarioDAO = new UsuarioDAO();
+    $usuario = $usuarioDAO->getByEmail($email);
+    
+    // Redirecionar o usuário para index.php autenticado
+    if ($usuario && password_verify($passeword, $usuario->getSenha())) {
+        $token = bin2hex(random_bytes(25));
+        $usuarioDAO->updateToken($usuario->getId(), $token); 
+        $_SESSION['token'] = $token;
+        header('Location: index.php');
+        exit();
+
+     } else {
+        echo "Email ou senha unválidos!";
+     }
 }
 
 ?>
