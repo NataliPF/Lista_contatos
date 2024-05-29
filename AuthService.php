@@ -61,7 +61,18 @@ if($type === "register") {
 
      } else {
         echo "Email ou senha unválidos!";
-     }
+     } 
+    
+}  elseif ($type === "logout") {
+    // Limpa todas as varáveis da sessão 
+    $_SESSION = array();
+
+    // Destruir a sessão
+    session_destroy();
+
+    // Redirecionar para a página de login
+    header('Location: index.php');
+    exit();
 }
 
 ?>
